@@ -2,6 +2,7 @@
   "name": "automation-playground",
   "type": "module",
   "devDependencies": {
+    "@wdio/allure-reporter": "^9.0.4",
     "@wdio/cli": "^9.0.7",
     "@wdio/local-runner": "^9.0.7",
     "@wdio/mocha-framework": "^9.0.6",
@@ -9,5 +10,14 @@
   },
   "scripts": {
     "wdio": "wdio run ./wdio.conf.js"
+  },
+  "dependencies": {
+    "@emailjs/browser": "^4.4.1",
+    "allure": "^0.0.0",
+    "emailjs": "^4.0.3",
+    "emailjs-com": "^3.2.0",
+    "node-fetch": "^3.3.2",
+    "nodemailer": "^6.9.15",
+    "smtp-client": "^0.4.0"
   }
 }

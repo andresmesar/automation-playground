@@ -1,3 +1,4 @@
+
 export const config = {
     //
     // ====================
@@ -21,7 +22,9 @@ export const config = {
     // of the config file unless it's absolute.
     //
     specs: [
-        './test/specs/**/*.js'
+        //'./test/specs/**/*.js'
+        //'./test/specs/**/example-spec.js'
+        './test/specs/**/test.e2e.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -43,16 +46,18 @@ export const config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 10,
+    maxInstances: 1,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    capabilities: [{
-        // capabilities for local browser web tests
-        browserName: 'chrome' // or "firefox", "microsoftedge", "safari"
-    }],
+    capabilities: [
+        { browserName: 'chrome'}
+        //{ browserName: 'firefox'},
+        //{ browserName: 'safari technology preview'},
+        //{ browserName: 'safari'}
+ ],
 
     //
     // ===================
@@ -124,7 +129,11 @@ export const config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+    reporters: ['spec', ['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverStepsReporting: true,
+        disableWebdriverScreenshotsReporting: true,
+    }]],
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
@@ -132,6 +141,7 @@ export const config = {
         ui: 'bdd',
         timeout: 60000
     },
+    
 
     //
     // =====
